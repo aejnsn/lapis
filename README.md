@@ -10,7 +10,9 @@
 <hr />
 
 ### Concept
-RESTful API endpoints typically require more functionality than pagination alone. For example, a front-end or mobile application may implement a filtering scheme or require access to the endpoint's nested resources. Lapis intends to provide a lightweight filtering and nested resource pattern leveraging the existing facilities in Laravel 5.5.
+RESTful API endpoints typically require more functionality than pagination alone. 
+For example, a front-end or mobile application may implement a filtering scheme or require access to the endpoint's nested resources. 
+Lapis intends to provide a lightweight filtering and nested resource pattern leveraging the existing facilities in Laravel 5.5.
 
 #### Includes
 Let's say we have an endpoint in a blogging platform to list our `post` resources returning a response like so:  
@@ -34,10 +36,16 @@ Let's say we have an endpoint in a blogging platform to list our `post` resource
 }
 ```
 
-Ideally we would want to see details of a post's author in our front-end. Right, so make another request to a hypothetical `users` endpoint referencing a distinct list of authorIds from the `posts` response...No, absolutely not! We (hopefully) spent the time in our blogging platform's backend to model our data's relationships and set up foreign key constraints with appropriate indices. So let's put those models to work.
+Ideally we would want to see details of a post's author in our front-end. 
+Right, so make another request to a hypothetical `users` endpoint referencing a distinct list of authorIds from the `posts` response...No, absolutely not! 
+We (hopefully) spent the time in our blogging platform's backend to model our data's relationships and set up foreign key constraints with appropriate indices. 
+So let's put those models to work.
 
-Lapis, leveraging Laravel's API Resources, allows us to add an `include` parameter on our request URL to retrieve the nested `author` (User) relationship. Our request URL and response would look something like this:
-```GET https://api.myrecipeblog.com/posts?include=author```
+Lapis, leveraging Laravel's API Resources, allows us to add an `include` parameter on our request URL to retrieve the nested `author` (User) relationship. 
+Our request URL and response would look something like this:
+
+`GET https://api.myrecipeblog.com/posts?include=author`
+
 ```json
 {
   "posts": [
@@ -69,12 +77,18 @@ Lapis, leveraging Laravel's API Resources, allows us to add an `include` paramet
 }
 ```
 ##### Nested Includes
-This will also work for nested relationships. For example, if our `User` model contained a `favorites` relationship we could request
-`GET https://api.myrecipeblog.com/posts?include=author.favorites` and an array of the author's `favorites` would be nested inside the `author` object.
+This will also work for nested relationships. 
+For example, if our `User` model contained a `favorites` relationship we could request
+`GET https://api.myrecipeblog.com/posts?include=author.favorites` 
+and an array of the author's `favorites` would be nested inside the `author` object.
 
 #### Filtering
-Let's go back to our original response above, for which we called the `posts` endpoint. Maybe we only want to see posts from the drinks category. We could alter our call from above like so:  
-```GET https://api.myrecipeblog.com/posts?filter[category]=drinks```  
+Let's go back to our original response above, for which we called the `posts` endpoint. 
+Maybe we only want to see posts from the drinks category. 
+We could alter our call from above like so:  
+
+`GET https://api.myrecipeblog.com/posts?filter[category]=drinks`
+  
 ```json
 {
   "posts": [
@@ -89,20 +103,27 @@ Let's go back to our original response above, for which we called the `posts` en
 ```
 
 We can also specify multiple filters using this structure:  
-```GET https://api.myrecipeblog.com/posts?filter[category]=drinks&filter[authorId]=15```
+
+`GET https://api.myrecipeblog.com/posts?filter[category]=drinks&filter[authorId]=15`
 
 ##### Nested Filters
-We discussed including an `author` relationship above. We can also filter on the author's details by making a request like so:
-```GET https://api.myrecipeblog.com/posts?filter[author.forHire]=true```
+We discussed including an `author` relationship above. 
+We can also filter on the author's details by making a request like so:
+
+`GET https://api.myrecipeblog.com/posts?filter[author.forHire]=true`
 
 ##### Filter Operators
-Up until this point we've just used filters to assert a field is equal to a given value. Filters understand the concept of operators. Here are a few examples:  
+Up until this point we've just used filters to assert a field is equal to a given value. 
+Filters understand the concept of operators. 
+Here are a few examples:  
   
 List posts later than October 1, 2017.  
-```GET https://api.myrecipeblog.com/posts?filter[postedAt{gte}]=2017-10-01```  
+
+`GET https://api.myrecipeblog.com/posts?filter[postedAt{gte}]=2017-10-01`  
   
-List posts where the author's name starts with John.  
-```GET https://api.myrecipeblog.com/posts?filter[author.name{starts}]=John```
+List posts where the author's name starts with John.
+  
+`GET https://api.myrecipeblog.com/posts?filter[author.name{starts}]=John`
 
 ### Reference Implementation
 
