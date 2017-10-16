@@ -1,7 +1,7 @@
 <h3 align="center">
   <a href="https://github.com/aejnsn/lapis"><img src="https://user-images.githubusercontent.com/5347897/31596692-2a79a572-b212-11e7-924c-356187b8ea7c.png" alt="lapis" width="175"></a>
 </h3>
-<h4 align="center">An API toolkit building on API Resources in Laravel 5.5.</h4>
+<h4 align="center">A toolkit building on API Resources in Laravel 5.5.</h4>
 <p align="center">
   <a href="https://travis-ci.org/aejnsn/lapis"><img src="https://travis-ci.org/aejnsn/lapis.svg?branch=master" alt="Build Status"></a>
   <a href='https://coveralls.io/github/aejnsn/lapis?branch=master'><img src='https://coveralls.io/repos/github/aejnsn/lapis/badge.svg?branch=master' alt='Coverage Status' /></a>
