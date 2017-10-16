@@ -1,7 +1,6 @@
 {
     "name": "aejnsn/lapis",
     "description": "An API toolkit for Laravel 5.5.",
-
     "type": "library",
     "license": "MIT",
     "keywords": [
