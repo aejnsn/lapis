@@ -82,7 +82,7 @@ abstract class Filter
          * @var Collection $withRelations
          * @var Collection $withoutRelations
          */
-        [$withRelations, $withoutRelations] = $this->input->partition(function ($value, $key) {
+        list($withRelations, $withoutRelations) = $this->input->partition(function ($value, $key) {
             return $this->hasRelations($key);
         });
 
