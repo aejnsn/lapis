@@ -36,8 +36,8 @@ Let's say we have an endpoint in a blogging platform to list our `post` resource
 
 Ideally we would want to see details of a post's author in our front-end. Right, so make another request to a hypothetical `users` endpoint referencing a distinct list of authorIds from the `posts` response...No, absolutely not! We (hopefully) spent the time in our blogging platform's backend to model our data's relationships and set up foreign key constraints with appropriate indices. So let's put those models to work.
 
-Lapis, leveraging Laravel's API Resources, allows us to add an `include` parameter on our request URL to get retrieve the nested `author` (User) relationship. Our request URL and response would look something like this:  
-```GET https://api.myrecipeblog.com/posts?include=author```  
+Lapis, leveraging Laravel's API Resources, allows us to add an `include` parameter on our request URL to retrieve the nested `author` (User) relationship. Our request URL and response would look something like this:
+```GET https://api.myrecipeblog.com/posts?include=author```
 ```json
 {
   "posts": [
