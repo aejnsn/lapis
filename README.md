@@ -1,5 +1,6 @@
-# lapis
-An API toolkit for Laravel 5.5.
+<h1 align="center">
+  <a href="https://github.com/aejnsn/lapis"><img src="https://user-images.githubusercontent.com/5347897/31596692-2a79a572-b212-11e7-924c-356187b8ea7c.png" alt="lapis" width="250"></a>
+</h1>
 
 <p align="center">
   <a href="https://travis-ci.org/aejnsn/lapis"><img src="https://travis-ci.org/aejnsn/lapis.svg?branch=master" alt="Build Status"></a>
