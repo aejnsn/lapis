@@ -3,3 +3,4 @@ vendor
 ._DS_STORE
 .idea
 build
+.scannerwork/
