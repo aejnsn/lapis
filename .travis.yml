@@ -24,7 +24,6 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-  - phpenv config-rm xdebug.ini || true
   - travis_retry composer self-update
 
 install:
@@ -32,3 +31,6 @@ install:
   - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest; fi
 
 script: vendor/bin/phpunit
+
+after_success:
+  - travis_retry php vendor/bin/coveralls

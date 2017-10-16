@@ -22,7 +22,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~6.0",
-        "graham-campbell/testbench": "~4.0"
+        "graham-campbell/testbench": "~4.0",
+        "php-coveralls/php-coveralls": "~1.0"
     },
     "autoload": {
         "psr-4": {
